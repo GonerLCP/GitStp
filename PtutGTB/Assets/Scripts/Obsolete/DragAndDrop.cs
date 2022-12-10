@@ -45,7 +45,7 @@ public class DragAndDrop : MonoBehaviour
         isDragging = false;
         if (isOverPote)
         {
-           ownStrength += dropZone.GetComponent<Strength>().strength;
+           ownStrength += dropZone.GetComponent<Strength>().strengthUnit;
            Destroy(dropZone);
         }
         else

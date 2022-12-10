@@ -8,14 +8,16 @@ public class DialogueTrigger : MonoBehaviour {
 
     public BattleSystem battleSystem;
 
+    public BattleState stater;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown("space") || battleSystem.state != BattleState.ORDERTURN)
+        if (Input.GetKeyDown("space") || battleSystem.state == stater)
         {
+            TriggerDialogue();
             return;
         }
-        TriggerDialogue();
     }
     public void TriggerDialogue ()
 	{

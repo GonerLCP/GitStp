@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 public class GridDeplacement : MonoBehaviour
 {
     private Vector3 startPos, endPos;
     public bool isMoving = false;
     public float MoveTime = 0.2f;
+    public int strength = 10;
 
     BattleSystem state;
     public BattleSystem battleSystem;
@@ -39,6 +43,12 @@ public class GridDeplacement : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, endPos, nextMove / MoveTime);
             nextMove += Time.deltaTime;
             yield return null;
+            //battleSystem.state = BattleState.IDLE;
+        }
+        battleSystem.nbTours = battleSystem.nbTours - 1;
+        GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + battleSystem.nbTours;
+        if (battleSystem.nbTours <= 0)
+        {
             battleSystem.state = BattleState.ORDERTURN;
         }
         print("Input");

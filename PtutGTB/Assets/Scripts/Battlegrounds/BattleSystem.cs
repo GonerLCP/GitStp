@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public enum BattleState { START, ORDERTURN, PLAYERTURN, WON, LOST }
+
+public enum BattleState { START, ORDERTURN, PLAYERTURN, ORDREAVANCE, ORDRERECUL, ORDREATTAQUE, WON, LOST, IDLE }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -24,56 +26,72 @@ public class BattleSystem : MonoBehaviour
 
 	public BattleState state;
 
+    public int rng;
+    public int nbTours;
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		state = BattleState.ORDERTURN;
-		//PlayerTurn();
 	}
 
+    private void Update()
+    {
+        switch (state)
+        {
+            case BattleState.START:
+                break;
 
-	IEnumerator EnemyTurn()
-	{
-		//dialogueText.text = enemyUnit.unitName + " attacks!";
+            case BattleState.ORDERTURN:
 
-		//yield return new WaitForSeconds(1f);
+                rng = Random.Range(1, 4);
+                switch (rng)
+                {
+                    case 1:
+                        state = BattleState.ORDREAVANCE;
+                        nbTours = Random.Range(4, 6);
+                        GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + nbTours;
+                        break;
 
-		//bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+                    case 2:
+                        state = BattleState.ORDRERECUL;
+                        nbTours = Random.Range(4, 6);
+                        GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + nbTours;
+                        break;
 
-		//playerHUD.SetHP(playerUnit.currentHP);
+                    case 3:
+                        state = BattleState.ORDREATTAQUE;
+                        nbTours = Random.Range(4, 6);
+                        GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + nbTours;
+                        break;
+                }
+                break;
 
-		yield return new WaitForSeconds(1f);
-	}
+            case BattleState.PLAYERTURN:
+                break;
 
-	void EndBattle()
-	{
-		if (state == BattleState.WON)
-		{
-			dialogueText.text = "You won the battle!";
-		}
-		else if (state == BattleState.LOST)
-		{
-			dialogueText.text = "You were defeated.";
-		}
-	}
+            case BattleState.ORDREAVANCE:
+                nbTours = Random.Range(4, 6);
 
-	void PlayerTurn()
-	{
-		dialogueText.text = "Choose an action:";
-	}
+                break;
 
+            case BattleState.ORDRERECUL:
+                nbTours = Random.Range(4, 6);
 
-	public void OnAttackButton()
-	{
-		if (state != BattleState.PLAYERTURN)
-			return;
-	}
+                break;
 
-	public void OnHealButton()
-	{
-		if (state != BattleState.PLAYERTURN)
-			return;
+            case BattleState.ORDREATTAQUE:
+                nbTours = Random.Range(4, 6);
 
-	}
+                break;
 
+            case BattleState.WON:
+                break;
+            case BattleState.LOST:
+                break;
+            default:
+                break;
+        }
+
+    }
 }
