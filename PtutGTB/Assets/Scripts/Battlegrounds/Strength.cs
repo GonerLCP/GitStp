@@ -8,27 +8,22 @@ public class Strength : MonoBehaviour
 
     public GridDeplacement gridDeplacement;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gridDeplacement.strength += strengthUnit;
-        print("entrée");
+        if (collision.gameObject.name == "Player")
+        {
+            gridDeplacement.strength += strengthUnit;
+            print("entrée");
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        gridDeplacement.strength -= strengthUnit;
-        print("sortie");
+        if (collision.gameObject.name == "Player")
+        {
+            gridDeplacement.strength -= strengthUnit;
+            print("sortie");
+        }
     }
 }
