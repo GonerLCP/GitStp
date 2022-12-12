@@ -58,19 +58,39 @@ public class GridDeplacement : MonoBehaviour
             switch (battleSystem.stateTampon)
             {
                 case BattleStateTampon.AVANCE:
-                    if (battleSystem.playerBattleStation.position.y <= battleSystem.positionQuandOrdre.y)
+                    if (battleSystem.playerBattleStation.position.y < battleSystem.positionOrdreAvance.y)
                     {
-                        battleSystem.stateTampon = BattleStateTampon.TORDERTURN;
+                        battleSystem.stateTampon = BattleStateTampon.SCOLD;
                         battleSystem.state = BattleState.SCOLD;
+                    }
+                    else
+                    {
+                        battleSystem.state = BattleState.ORDERTURN;
                     }
                     break;
 
                 case BattleStateTampon.RECUL:
-
+                    if (battleSystem.playerBattleStation.position.y > battleSystem.positionOrdreRecul.y)
+                    {
+                        battleSystem.stateTampon = BattleStateTampon.SCOLD;
+                        battleSystem.state = BattleState.SCOLD;
+                    }
+                    else
+                    {
+                        battleSystem.state = BattleState.ORDERTURN;
+                    }
                     break;
 
                 case BattleStateTampon.ATTAQUE:
-
+                    if (battleSystem.playerBattleStation.position.y <= battleSystem.positionQuandOrdre.y)
+                    {
+                        battleSystem.stateTampon = BattleStateTampon.SCOLD;
+                        battleSystem.state = BattleState.SCOLD;
+                    }
+                    else
+                    {
+                        battleSystem.state = BattleState.ORDERTURN;
+                    }
                     break;
             }
         }

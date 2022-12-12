@@ -16,6 +16,7 @@ public class DialogueTrigger : MonoBehaviour {
         if (battleSystem.state == stater)
         {
             TriggerDialogue();
+            print(stater);
             return;
         }
     }

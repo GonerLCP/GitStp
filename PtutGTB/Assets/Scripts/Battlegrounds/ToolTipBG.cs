@@ -20,4 +20,6 @@ public class ToolTipBG : MonoBehaviour
         Radius.GetComponent<SpriteRenderer>().enabled = false;
         print("exit");
     }
+
+    //ondestroy
 }

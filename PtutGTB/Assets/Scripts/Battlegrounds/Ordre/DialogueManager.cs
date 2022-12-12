@@ -68,11 +68,15 @@ public class DialogueManager : MonoBehaviour {
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
-		battleSystem.state = BattleState.PLAYERTURN;
-		if(battleSystem.state == BattleState.SCOLD)
+		if(battleSystem.stateTampon == BattleStateTampon.SCOLD)
         {
 			battleSystem.state = BattleState.ORDERTURN;
+			battleSystem.stateTampon = BattleStateTampon.IDLE;
         }
+        else
+        {
+			battleSystem.state = BattleState.PLAYERTURN;
+		}
 	}
 
 }

@@ -6,7 +6,7 @@ using TMPro;
 
 
 public enum BattleState { START, ORDERTURN, PLAYERTURN, ORDREAVANCE, ORDRERECUL, ORDREATTAQUE, WON, LOST, IDLE, SCOLD }
-public enum BattleStateTampon { TORDERTURN, TPLAYERTURN, AVANCE, RECUL, ATTAQUE, SCOLD }
+public enum BattleStateTampon { TORDERTURN, TPLAYERTURN, AVANCE, RECUL, ATTAQUE, SCOLD, IDLE }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -17,8 +17,8 @@ public class BattleSystem : MonoBehaviour
 	public Transform playerBattleStation;
 
     public Vector3 positionQuandOrdre;
-    Vector3 positionOrdreAvance;
-    Vector3 positionOrdreRecul;
+    public Vector3 positionOrdreAvance;
+    public Vector3 positionOrdreRecul;
 
 	public BattleState state;
     public BattleStateTampon stateTampon;
@@ -54,6 +54,7 @@ public class BattleSystem : MonoBehaviour
                         state = BattleState.ORDRERECUL;
                         stateTampon = BattleStateTampon.RECUL;
                         positionQuandOrdre = playerBattleStation.position;
+                        positionOrdreRecul = new Vector3(positionQuandOrdre.x, positionQuandOrdre.y - (2.0f * 2), positionQuandOrdre.z);
                         nbTours = Random.Range(4, 6);
                         GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + nbTours;
                         break;
