@@ -49,7 +49,30 @@ public class GridDeplacement : MonoBehaviour
         GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + battleSystem.nbTours;
         if (battleSystem.nbTours <= 0)
         {
-            battleSystem.state = BattleState.ORDERTURN;
+            //if (battleSystem.state == BattleState.SCOLD)
+            //{
+            //    battleSystem.state = BattleState.ORDERTURN;
+
+            //}
+
+            switch (battleSystem.stateTampon)
+            {
+                case BattleStateTampon.AVANCE:
+                    if (battleSystem.playerBattleStation.position.y <= battleSystem.positionQuandOrdre.y)
+                    {
+                        battleSystem.stateTampon = BattleStateTampon.TORDERTURN;
+                        battleSystem.state = BattleState.SCOLD;
+                    }
+                    break;
+
+                case BattleStateTampon.RECUL:
+
+                    break;
+
+                case BattleStateTampon.ATTAQUE:
+
+                    break;
+            }
         }
         print("Input");
         transform.position = endPos;

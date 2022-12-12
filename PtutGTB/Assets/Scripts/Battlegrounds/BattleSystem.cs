@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public enum BattleState { START, ORDERTURN, PLAYERTURN, ORDREAVANCE, ORDRERECUL, ORDREATTAQUE, WON, LOST, IDLE }
-public enum BattleStateTampon { TORDERTURN, TPLAYERTURN, AVANCE, RECUL, ATTAQUE }
+public enum BattleState { START, ORDERTURN, PLAYERTURN, ORDREAVANCE, ORDRERECUL, ORDREATTAQUE, WON, LOST, IDLE, SCOLD }
+public enum BattleStateTampon { TORDERTURN, TPLAYERTURN, AVANCE, RECUL, ATTAQUE, SCOLD }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -15,21 +15,10 @@ public class BattleSystem : MonoBehaviour
 	public GameObject enemyPrefab;
 
 	public Transform playerBattleStation;
-	public Transform enemyBattleStation;
 
-    Vector3 positionQuandOrdre;
+    public Vector3 positionQuandOrdre;
     Vector3 positionOrdreAvance;
     Vector3 positionOrdreRecul;
-
-    int nbAvance = 2;
-
-    Unit playerUnit;
-	Unit enemyUnit;
-
-	public Text dialogueText;
-
-	public BattleHUD playerHUD;
-	public BattleHUD enemyHUD;
 
 	public BattleState state;
     public BattleStateTampon stateTampon;
@@ -56,6 +45,7 @@ public class BattleSystem : MonoBehaviour
                         state = BattleState.ORDREAVANCE;
                         stateTampon = BattleStateTampon.AVANCE;
                         positionQuandOrdre = playerBattleStation.position;
+                        positionOrdreAvance = new Vector3(positionQuandOrdre.x, positionQuandOrdre.y + (2.0f * 2), positionQuandOrdre.z);
                         nbTours = Random.Range(4, 6);
                         GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + nbTours;
                         break;
@@ -78,23 +68,6 @@ public class BattleSystem : MonoBehaviour
                 }
                 break;
 
-            default:
-                break;
-        }
-
-        switch (stateTampon)
-        {
-            case BattleStateTampon.TORDERTURN:
-                break;
-            case BattleStateTampon.TPLAYERTURN:
-                break;
-            case BattleStateTampon.AVANCE:
-                positionOrdreAvance = new Vector3(positionQuandOrdre.x, positionQuandOrdre.y +(2.0f *2), positionQuandOrdre.z);
-                break;
-            case BattleStateTampon.RECUL:
-                break;
-            case BattleStateTampon.ATTAQUE:
-                break;
             default:
                 break;
         }

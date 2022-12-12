@@ -13,7 +13,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown("space") || battleSystem.state == stater)
+        if (battleSystem.state == stater)
         {
             TriggerDialogue();
             return;
