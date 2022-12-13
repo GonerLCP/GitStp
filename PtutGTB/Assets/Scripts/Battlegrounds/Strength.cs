@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class Strength : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class Strength : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             gridDeplacement.strength += strengthUnit;
+            GameObject.Find("StrengthPlayer").GetComponent<TextMeshPro>().text = gridDeplacement.strength.ToString();
             print("entrée");
         }
 
@@ -23,6 +26,7 @@ public class Strength : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             gridDeplacement.strength -= strengthUnit;
+            GameObject.Find("StrengthPlayer").GetComponent<TextMeshPro>().text = gridDeplacement.strength.ToString();
             print("sortie");
         }
     }

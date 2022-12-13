@@ -10,15 +10,17 @@ public class GridDeplacement : MonoBehaviour
     public bool isMoving = false;
     public float MoveTime = 0.2f;
     public int strength = 10;
+    public int life = 3;
 
     BattleSystem state;
-    public BattleSystem battleSystem;
-
+    public BattleSystem battleSystem; 
     public bool Ennemykilled;
 
     private void Start()
     {
         Ennemykilled = false;
+        GameObject.Find("StrengthPlayer").GetComponent<TextMeshPro>().text = strength.ToString();
+        GameObject.Find("LifePlayer").GetComponent<TextMeshPro>().text = life.ToString();
     }
     void Update()
     {
@@ -62,6 +64,8 @@ public class GridDeplacement : MonoBehaviour
                     {
                         battleSystem.stateTampon = BattleStateTampon.SCOLD;
                         battleSystem.state = BattleState.SCOLD;
+                        life = life - 1;
+                        GameObject.Find("LifePlayer").GetComponent<TextMeshPro>().text = life.ToString();
                     }
                     else
                     {
@@ -74,6 +78,8 @@ public class GridDeplacement : MonoBehaviour
                     {
                         battleSystem.stateTampon = BattleStateTampon.SCOLD;
                         battleSystem.state = BattleState.SCOLD;
+                        life = life - 1;
+                        GameObject.Find("LifePlayer").GetComponent<TextMeshPro>().text = life.ToString();
                     }
                     else
                     {
@@ -86,6 +92,8 @@ public class GridDeplacement : MonoBehaviour
                     {
                         battleSystem.stateTampon = BattleStateTampon.SCOLD;
                         battleSystem.state = BattleState.SCOLD;
+                        life = life - 1;
+                        GameObject.Find("LifePlayer").GetComponent<TextMeshPro>().text = life.ToString();
                     }
                     else
                     {

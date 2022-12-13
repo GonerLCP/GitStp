@@ -51,8 +51,8 @@ public class PoteGridDeplacement : MonoBehaviour
             yield return null;
             //battleSystem.state = BattleState.IDLE;
         }
-        battleSystem.nbTours = battleSystem.nbTours - 1;
-        GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + battleSystem.nbTours;
+        //battleSystem.nbTours = battleSystem.nbTours - 1;
+        //GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + battleSystem.nbTours;
         
         transform.position = endPos;
         isMoving = false;

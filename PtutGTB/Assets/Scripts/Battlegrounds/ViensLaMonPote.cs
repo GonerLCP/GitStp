@@ -4,48 +4,70 @@ using UnityEngine;
 
 public class ViensLaMonPote : MonoBehaviour
 {
+    bool trigger;
+
+    public GameObject UnitPote;
     // Start is called before the first frame update
     void Start()
     {
-        
+        trigger = false;
+        UnitPote.GetComponent<PoteGridDeplacement>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Pote" && Input.GetKeyDown("space"))
-    //    {
-    //        GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = true;
-
-    //    }
-    //}
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Pote" && Input.GetKeyDown("space"))
+        if (trigger == true && Input.GetKeyDown("space"))
         {
-            if (GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled == true)
+            if (UnitPote.GetComponent<PoteGridDeplacement>().enabled == true)
             {
-                GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = false;
+                print("AH");
+                UnitPote.GetComponent<PoteGridDeplacement>().enabled = false;
             }
             else
             {
-                GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = true;
+                print("BH");
+                UnitPote.GetComponent<PoteGridDeplacement>().enabled = true;
             }
-
         }
     }
 
-    //private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("Ahhhhhhhhhhhhhhh");
+        if (collision.gameObject.tag == "Pote")
+        {
+            //GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = true;
+            trigger = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        print("Hooooooooooooooo");
+        if (collision.gameObject.tag == "Pote")
+        {
+            //GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = false;
+            trigger = false;
+        }
+    }
+
+    //private void OnTriggerStay2D(Collider2D collision)
     //{
     //    if (collision.gameObject.tag == "Pote" && Input.GetKeyDown("space"))
     //    {
-    //        GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = false;
+    //        print("Camarche !");
+    //        if (GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled == true)
+    //        {
+    //            print("AH");
+    //            GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = false;
+    //        }
+    //        else
+    //        {
+    //            print("BH");
+    //            GameObject.Find("Pote").GetComponent<PoteGridDeplacement>().enabled = true;
+    //        }
+
     //    }
     //}
 }
