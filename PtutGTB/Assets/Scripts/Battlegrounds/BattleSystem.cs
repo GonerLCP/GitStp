@@ -23,6 +23,8 @@ public class BattleSystem : MonoBehaviour
 	public BattleState state;
     public BattleStateTampon stateTampon;
 
+    public IsEnnemyInRange EnnemyInRange;
+
     public int rng;
     public int nbTours;
 
@@ -38,7 +40,16 @@ public class BattleSystem : MonoBehaviour
         {
             case BattleState.ORDERTURN:
 
-                rng = Random.Range(1, 4);
+                if (EnnemyInRange.isEnnemyInRange == true)
+                {
+                    rng = Random.Range(1, 4);
+                    print("in range");
+                }
+                else
+                {
+                    rng = Random.Range(1, 3);
+                    print("pas in range");
+                }
                 switch (rng)
                 {
                     case 1:

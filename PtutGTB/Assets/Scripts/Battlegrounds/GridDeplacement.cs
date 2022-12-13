@@ -14,6 +14,12 @@ public class GridDeplacement : MonoBehaviour
     BattleSystem state;
     public BattleSystem battleSystem;
 
+    public bool Ennemykilled;
+
+    private void Start()
+    {
+        Ennemykilled = false;
+    }
     void Update()
     {
 
@@ -49,12 +55,6 @@ public class GridDeplacement : MonoBehaviour
         GameObject.Find("TxtNbTours").GetComponent<TextMeshProUGUI>().text = "Nombre de tours :" + battleSystem.nbTours;
         if (battleSystem.nbTours <= 0)
         {
-            //if (battleSystem.state == BattleState.SCOLD)
-            //{
-            //    battleSystem.state = BattleState.ORDERTURN;
-
-            //}
-
             switch (battleSystem.stateTampon)
             {
                 case BattleStateTampon.AVANCE:
@@ -82,19 +82,20 @@ public class GridDeplacement : MonoBehaviour
                     break;
 
                 case BattleStateTampon.ATTAQUE:
-                    if (battleSystem.playerBattleStation.position.y <= battleSystem.positionQuandOrdre.y)
+                    if (Ennemykilled == false)
                     {
                         battleSystem.stateTampon = BattleStateTampon.SCOLD;
                         battleSystem.state = BattleState.SCOLD;
                     }
                     else
                     {
+                        Ennemykilled = false;
                         battleSystem.state = BattleState.ORDERTURN;
                     }
                     break;
             }
         }
-        print("Input");
+        //print("Input");
         transform.position = endPos;
         isMoving = false;
     }
