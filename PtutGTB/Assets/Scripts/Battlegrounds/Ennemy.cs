@@ -20,6 +20,7 @@ public class Ennemy : MonoBehaviour
 
             if (gridDeplacement.strength < strengthEnnemy)
             {
+                print("mdr c'est pas géré");
                 //Destroy(gameObject);
             }
         }

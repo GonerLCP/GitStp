@@ -10,6 +10,10 @@ public class Strength : MonoBehaviour
 
     public GridDeplacement gridDeplacement;
 
+    private void Start()
+    {
+        GameObject.Find("StrengthPoto").GetComponent<TextMeshPro>().text = strengthUnit.ToString();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
