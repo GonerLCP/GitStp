@@ -86,20 +86,20 @@ public class DialogueActions : MonoBehaviour
                 GameObject.Find("spGedrir").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 if (interlocuteur == 1)
                 {
-                    GameObject.Find("spSergent").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.6f);
+                    GameObject.Find("spSergent").GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
                 }
                 if (interlocuteur == 2)
                 {
-                    GameObject.Find("spRupert").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.6f);
+                    GameObject.Find("spRupert").GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
                 }
                 if (interlocuteur == 3)
                 {
-                    GameObject.Find("spVasvan").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.6f);
+                    GameObject.Find("spVasvan").GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
                 }
             }
             else
             {
-                GameObject.Find("spGedrir").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.6f);
+                GameObject.Find("spGedrir").GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
             }
 
 //Sergent
