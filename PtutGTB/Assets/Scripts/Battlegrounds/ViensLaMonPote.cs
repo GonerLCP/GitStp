@@ -5,12 +5,15 @@ using UnityEngine;
 public class ViensLaMonPote : MonoBehaviour
 {
     bool trigger;
+    public int space;
+    int spaceTampon;
 
     public GameObject UnitPote;
     // Start is called before the first frame update
     void Start()
     {
         trigger = false;
+        space = 0;
         UnitPote.GetComponent<PoteGridDeplacement>().enabled = false;
     }
 
@@ -19,6 +22,17 @@ public class ViensLaMonPote : MonoBehaviour
     {
         if (trigger == true && Input.GetKeyDown("space"))
         {
+            if (spaceTampon == 1)
+            {
+                space = 2;
+                spaceTampon = 2;
+            }
+            else
+            {
+                space = 1;
+                spaceTampon = 1;
+            }
+            
             if (UnitPote.GetComponent<PoteGridDeplacement>().enabled == true)
             {
                 print("AH");

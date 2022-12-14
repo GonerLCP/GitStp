@@ -1,0 +1,324 @@
+:: StoryTitle
+VN 3 1
+
+:: StoryData
+{
+ "ifid": "ff6a7e7b-9dbc-4e46-bd5a-873e422073e2",
+ "format": "Entweedle",
+ "format-version": "1.1.1",
+ "startnode": "32",
+ "zoom": "0.3",
+ "start": "START",
+ "tag-colors": {
+  "4": "none"
+ }
+}
+
+:: UserScript [script]
+
+
+:: UserStylesheet [stylesheet]
+
+
+:: Début {"position":"1600,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Heureusement que j'ai abattu ce barbare avec mon carreau, sinon t'aurais fini décapité. 
+
+[[Encore Merci]]
+
+
+:: Encore Merci {"position":"1800,2400","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Ouais, une gorge tranchée net tu pense que ça m'aurait garanti une belle place dans l'au delà ? 
+En tout cas merci, tu m'as vraiment sauvé la vie sur ce coup là.
+
+
+[[Suivant]] 
+
+:: Suivant {"position":"2000,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+C'est normal, si j'ai pu faire ça c'est uniquement parce que t'avais réparé mon cric. Et à la prochaine occasion tu me le revaudras !
+
+[[Avec plaisir, mais quand ?]]
+[[J'espère que ça sera pas nécéssaire]] 
+
+:: J'espère que ça sera pas nécéssaire {"position":"2200,2500","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+T'en es bien certain de ça? Je suis pas sûr d'avoir envie de vivre une autre expérience de mort imminente de sitôt.
+
+[[Suivant|Suivant 2]]
+
+:: Avec plaisir, mais quand ? {"position":"2200,2300","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+(set: $affRupert to $affRupert + 1)
+
+Quand tu veux, mais ça devrait se calmer maintenant non ? On est pas sensés aller stationner le long de la Yaruga ? En tout cas si on pouvait éviter de trop gambader ça m'arrangerait, c'est pas tant mon genou le problème, c'est ces bottes, elles me tuent. 
+
+[[Suivant|Suivant 2]]
+
+
+:: Suivant 2 {"position":"2400,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Et bien pourtant pas le choix ! J'ai entendu dire que dès demain on bouge vers Angren pour un siège. tu pourras bien te reposer, mais qu'une fois qu'on sera arrivés.
+
+[[Enfin une pause]]
+
+:: Enfin une pause {"position":"2600,2400","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Oh. Hâte qu'on soit arrivés. Un moment de pause nous fera du bien à tous,  au moins là on pourra tous faire un peu ce qu'on veut pendant un temps. 
+
+[[Suivant|Suivant 3]]
+
+:: Suivant 3 {"position":"2800,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Ce qu'on veut ? Ca reste un siège tu sais, dès que tu seras sur pied tu nous rejoindras pour qu'on aille s'empaler les uns après les autres contre les murs comme on nous le dira, car c'est ce que veut notre belle et noble cause ! 
+ 
+[[Une cause ?]]
+[[Fais un effort]]
+
+:: Une cause ? {"position":"3000,2300","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+La cause ? On parle bien de celle qui nous fait tuer des inconnus ? Des gens qui se battent avec un acier que j'aurais pu forger moi-même ? Dis donc elle est bien belle la cause nilfgaardienne. 
+
+
+[[Suivant|Suite 4.4]]
+
+
+:: Fais un effort {"position":"3000,2500","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Pour une fois ca te dis pas d'utiliser ton cerveau 2 secondes ?
+
+[[Suivant|Suite 4.6]]
+
+:: Suite 4.4 {"position":"3200,2300","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Je te croyais pas si vindicatif, à t'entendre on pourrait presque croire que tu préfererais forger des armes pour le nord. 
+
+[[Ca te concerne ?]]
+[[J'ai jamais dit que je me battais pour le sergent]] 
+
+
+:: Suite 4.6 {"position":"3200,2500","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Non, je me contente d'utiliser mon oeuil, il bien est aiguisé, ça me suffit la plupart du temps, surtout pour survivre. 
+
+[[Donc tu tue qui on te dit de tuer ?]]
+[[Un oeuil qui peut être utile]]
+
+:: Ca te concerne ? {"position":"3400,2100","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Ca veut dire quoi ça ? Tu crois que je vendrais mes armes au premier troufion venu ? Même si c'est un batard de mercenaire ou de bandit ?
+
+[[Suivant|Suite 4.4.1]]
+
+:: J'ai jamais dit que je me battais pour le sergent {"position":"3400,2300","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+(set: $affRupert to $affRupert + 1)
+
+Parce que tu crois que je suis vendu aux escadrons noirs ? C'est pas demain la veille que ces salauds auront ma loyauté inconditionnelle.
+
+
+[[Suivant|Suite 4.4.2]]			
+
+
+
+:: Suite 4.4.2 {"position":"3600,2300","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Le code moral des Sudistes m'a toujours fasciné ! Mais toi c'est ta détermination qui est curieuse. 
+
+(if: $affection < 1)[
+[[Sudiste ??]] ] 
+
+(else:)[[Du respect ou de l'intérêt ?]]
+
+
+:: Suite 4.4.1 {"position":"3600,1900","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Qu'est ce que tu veux que je te dise ? Que ce soit toi ou moi, dans cette vie ou une autre, on offre notre capacité au plus offrant, sauf quand c'est une raclure du Nilfgaard qui te prend et te force à la donner gratuitement. 
+
+[[Un honneur de mourir près de mecs comme toi...]]
+[[Nan on est pas les mêmes. ]]
+
+
+:: Sudiste ?? {"position":"3800,2200","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Moi ? Sudiste ? Putain de bourgeois de mes deux tu vas voir ce qu'il te reserve le sudiste. 
+
+[[Suivant|Suite 4.4.3]]
+
+
+:: Du respect ou de l'intérêt ? {"position":"3800,2400","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+D'accord vas y, crache le morceau. Qu'est ce qui t'interesse le plus, mon marteau, ou mes contacts dans le nord ?
+
+[[Suivant|Suite 4.6.3]]
+
+:: Suite 4.4.3 {"position":"4400,2100","size":"100,100"}
+*Le sergent entre pour séparer les deux goliaths qui commencent à se battre*
+
+[[Suivant|End 2]] 
+
+
+:: Un honneur de mourir près de mecs comme toi... {"position":"4400,1800","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Et bien je serais très heureux de mourir avec toi à Angren si je dois te croire, aller profite de ton repos et évite de dire trop de conneries. 
+
+[[Suivant|End 2]]  
+
+:: Nan on est pas les mêmes.  {"position":"3800,2000","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Vraiment pas. T'as une famille à nourir toi ? Des proches que tu veux retrouver ? Tu comprends vraiment rein à la guerre putain, c'est pas qu'une histoire de colonisés et de colonisateurs. C'est une histoire de bons gars et de bonnes dames qui se font baiser.
+
+[[Suivant|Suite 4.4.3]] 
+
+:: Donc tu tue qui on te dit de tuer ? {"position":"3400,2700","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Et tu t'es jamais dit que ça pouvait servir un but un peu meilleur ? 
+
+[[Suivant|Suite 4.6.2]]
+
+
+:: Un oeuil qui peut être utile {"position":"3400,2500","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+C'est quelque chose qui peut s'avérer utile ailleurs que sur un champ de bataille tu sais ? 
+
+[[Suivant|Suite 4.6.1]]
+
+:: Suite 4.6.1 {"position":"3600,2500","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Je le sais bien merci, et je sais aussi qu'il vaut mieux pas que tu racontes ce genre de choses à n'importe qui. Après ça tombe bien je suis pas n'importe qui, donc continue.
+
+[[Du respect ou de l'intérêt ?]] 
+
+:: Suite 4.6.2 {"position":"4000,2700","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Bien sûr que si, seulement c'est pas la même chose que de penser à se tailler, et le faire pour de bon, seul en plus.  
+
+[[Tu serais prêt à collaborer ?]]
+[[Plutôt crever]]
+
+
+:: Tu serais prêt à collaborer ? {"position":"4200,2400","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Bon, donc un de ces jours je te donne le signal, on se tire ni vu ni connu, et tu couvre mes arrières ?
+
+[[Suivant|Suite 4.7]]
+
+
+:: Plutôt crever {"position":"4400,2700","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Plutôt crever que de me tirer avec un taré comme toi.
+
+[[Suivant|End 2]] 
+
+:: Suite 4.6.3 {"position":"4000,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+J'ai surtout envie soit d'emmerder le sergeant, soit de gagner de l'or en tuant ses hommes, ça au moins ça aura du sens. 
+
+Ce qui m'interesse, c'est de buter du Nilfgaardien, et si je peux me faire de l'argent en même temps c'est encore mieux. Ca au moins ca aura du sens.
+
+[[Tu serais prêt à collaborer ?]] 
+
+:: Suite 4.7 {"position":"4400,2400","size":"100,100"}
+(set: $nomPerso to "Rupert")
+
+Tu dis des choses qui me plaisent bien, allez je te laisse à ta convalescence.
+
+[[Suivant|End 2]] 
+
+:: End 2 {"position":"4800,2250","size":"100,100"}
+*Rupert sors de la tente, en laissant entrer l'infirmier qui vient vérifier l'etat des blessures de Gedrir*
+
+[[Suivant|Suivant ]]
+
+
+:: Suivant  {"position":"5000,2250","size":"100,100"}
+(set: $nomPerso to "Vasvan")
+
+Alors champion, tu t'en sors avec toutes ces blessures ? Les batailles sont rudes dans ces régions, c'est si excitant !
+
+[[Excitant ?]]
+
+
+:: START [START] {"position":"1200,2400","size":"100,100"}
+(set: $nomPerso to "Sergent")
+(set: $affRupert to 0)
+
+"Vous vous êtes bien battus les feignasses, c'était pas le combat le plus compliqué mais au moins vous avez tous survécu, certains un peu mieux que d'autres visiblement", dit-il en regardant Rupert et son genou en compote. "Vous avez mérité un peu de repos, pour une fois, alors profitez en ! Je vous tiendrai au courant de nos futures manoeuvres demain !"
+
+[[Suivant|Début]]
+
+:: Excitant ? {"position":"5000,2450","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Drôle de façon de voir les choses, cela dit j'ai plus trop l'énergie de débattre là. 
+
+[[Suivant|Suivant 7]]
+
+
+:: Suivant 7 {"position":"5000,2650","size":"100,100"}
+(set: $nomPerso to "Vasvan")
+
+Débattre de quoi? Y'a pas de raison ! On est en guerre pour une bonne raison, du coup faut bien faire ce pour quoi on est là !
+
+[[Tuer des gens ?]]
+[[T'as de la chance d'avoir vingt ans.]]
+
+:: Tuer des gens ? {"position":"4900,2850","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Tuer des gens ? C'est pour ça que tu t'es engagé volontairement ? Pour un infirmier je t'aurais cru un peu plus altruiste. 
+
+[[Suivant|Suite 7.1]]
+
+:: T'as de la chance d'avoir vingt ans. {"position":"5100,2850","size":"100,100"}
+(set: $nomPerso to "Gedrir")
+
+Ca doit faire du bien d'avoir que vingt ans, et de croire en tout ses idéaux. En attendant arrête de me bassiner avec tes conneries et contente toi de vérifier ce bandage.
+
+[[Suivant|Suite 7.2]]
+
+
+
+:: Suite 7.1 {"position":"4900,3050","size":"100,100"}
+(set: $nomPerso to "Vasvan")
+
+Si j'ai étudié la medecine, c'est pour sauver ceux qui se font exploiter et torturer par ces sous-évolués de nordistes, rien d'autre. Eeet voilà, ton bandage est nickel.
+
+[[Suivant|End]]
+
+:: Suite 7.2 {"position":"5100,3050","size":"100,100"}
+(set: $nomPerso to "Vasvan")
+
+Vieux débris, c'est pas une question d'âge. Si tu pense vraiment que tout va bien dans le nord, faudra pas compter sur moi la prochaine fois que tu te prendras un coup de hache dans le genou
+
+[[Suivant|End]]
+
+:: End [END] {"position":"5000,3250","size":"100,100"}
+*Le médecin sors de la tente d'un air énervé, Gedrir avait de toute façons pas mal de choses à planifier.*
+[[Fin]]

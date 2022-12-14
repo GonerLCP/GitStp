@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour {
 			DisplayNextSentence();
         }
     }
-    public void StartDialogue (Dialogue dialogue)
+    public void StartDialogue (DialogueALED dialogue)
 	{
 		animator.SetBool("IsOpen", true);
 

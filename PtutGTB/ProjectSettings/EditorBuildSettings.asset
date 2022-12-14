@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grid.unity
     guid: 071a0ebdfa7c2964090334d54bb50c89
+  - enabled: 1
+    path: Assets/TwineToUnity/Exemple/ExTwintoUnityV01.unity
+    guid: b89f840ec12adb1419d423b20e978c93
   m_configObjects: {}

@@ -16,5 +16,6 @@ public class ToolTip : MonoBehaviour
     {
         ToolTipManager.instance.HideToopTip();
         print("exit");
+
     }
 }

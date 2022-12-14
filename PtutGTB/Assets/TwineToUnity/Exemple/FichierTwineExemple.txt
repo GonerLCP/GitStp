@@ -1,0 +1,49 @@
+﻿:: StoryTitle
+FichierTwine
+
+:: StoryData
+{
+ "ifid": "075EF573-CDB2-4927-8759-AF5DE4F9CEF2",
+ "format": "Entweedle",
+ "format-version": "1.1.1",
+ "startnode": "1",
+ "zoom": "1",
+ "start": "Debut"
+}
+
+:: UserScript [script]
+
+
+:: UserStylesheet [stylesheet]
+
+
+:: Debut [START] {"position":"800,350","size":"100,100"}
+texte d'introduction
+(set: $uneVariable to "contenu de la variable $uneVariable") (set: $truc to 1) (set: $nomPerso to "Selim")(set: $zoneTexte to "zone1")
+(set: $été to 5)la variable truc est égale à $truc  
+[[vers passage 2|passage 2]]
+[[vers passage 3|passage 3]]
+
+:: passage 2 {"position":"650,525","size":"100,100"}
+Texte du passage 2 (set: $testString to "test2")(set: $nomPerso to "Lilas")(set: $zoneTexte to "zone2")
+testString est égale à $testString (set: $truc to 5 + $truc)
+truc est égale à $truc
+[[suivant|passage 3]]
+
+:: passage 3 {"position":"825,600","size":"100,100"}
+texte passage 3 (set: $nomPerso to "Lilas")(set: $zoneTexte to "zone2")
+(if: $truc is 6) [texte dans une condition ] 
+(else:)[texte dans un else]
+(if: $truc < 10) [ [[exemple de lien dans une condition|fin]] ] 
+(else:) [[[exemple de lien dans un else| passage fin]]]
+[[choix 2 retour|Debut]]
+[[vers passage fin| passage fin]]
+
+::  passage fin {"position":"1025,625","size":"100,100"}
+texte du passage de fin(set: $nomPerso to "Shuang")(set: $zoneTexte to "zone1")
+[[fin|fin]]
+
+
+:: fin {"position":"825,725","size":"100,100"}
+test de node sans lien(set: $zoneTexte to "zone1")
+
